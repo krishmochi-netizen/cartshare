@@ -1,0 +1,89 @@
+/* ═══════════════════════════════════════════════════════════════════
+   CartShare — Print Stylesheet
+   Hides nav, buttons, forms; black text on white; fits A4.
+   ═══════════════════════════════════════════════════════════════════ */
+
+@media print {
+  /* ── Reset to print-friendly ──────────────────────────────────── */
+  *, *::before, *::after {
+    color: #000 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    -webkit-text-fill-color: #000 !important;
+  }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: 11pt;
+    line-height: 1.5;
+    margin: 0;
+    padding: 1cm;
+  }
+
+  /* ── Hide non-print elements ──────────────────────────────────── */
+  .cs-navbar,
+  .cs-footer,
+  #btn-print,
+  .btn,
+  button,
+  form,
+  .toast,
+  #toast-container,
+  .no-print {
+    display: none !important;
+  }
+
+  /* ── Page breaks ──────────────────────────────────────────────── */
+  table {
+    page-break-inside: auto;
+  }
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+  thead {
+    display: table-header-group;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+  }
+
+  /* ── Receipt container ────────────────────────────────────────── */
+  .cs-receipt {
+    max-width: 100%;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  /* ── Table styling for print ──────────────────────────────────── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 6px 10px;
+    text-align: left;
+  }
+  th {
+    font-weight: bold;
+    background: #f0f0f0 !important;
+  }
+
+  /* ── Links ────────────────────────────────────────────────────── */
+  a {
+    text-decoration: none;
+  }
+  a[href]::after {
+    content: none;
+  }
+
+  /* ── A4 sizing hint ──────────────────────────────────────────── */
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+}
