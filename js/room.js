@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Leave room ──────────────────────────────────────────────────────
   leaveBtn.addEventListener('click', () => {
-    if (!confirm('Are you sure you want to leave this room?')) return;
     Storage.addLog(roomCode, { user: user.name, action: 'left the room' });
     Storage.leaveRoom(roomCode, user.name);
     Sync.notify();
